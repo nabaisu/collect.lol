@@ -50,6 +50,11 @@
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {
-    "@babel/helper-compilation-targets": "^7.16.3"
+    "@babel/helper-compilation-targets": "^7.16.3",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
   }
 }

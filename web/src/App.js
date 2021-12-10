@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import axios from "axios";
-import logo from "./logo.svg";
-import "./App.css";
+import React, {useState} from 'react'
+import axios from 'axios'
+import logo from './logo.svg'
+import './App.css'
 
 function App() {
-  const [message, setMessage] = useState();
+  const [message, setMessage] = useState()
   const fetchData = () => {
     axios
-      .get("/api/data")
-      .then(({ data }) => {
-        const { message } = data;
-        setMessage(message);
+      .get('/api/data')
+      .then(({data}) => {
+        const {message} = data
+        setMessage(message)
       })
-      .catch((error) => {
-        console.log(error);
-        setMessage(error?.message || "there was an error");
-      });
-  };
+      .catch(error => {
+        console.log(error)
+        setMessage(error?.message || 'there was an error')
+      })
+  }
 
   return (
     <div className="App">
@@ -37,7 +37,7 @@ function App() {
         <button onClick={fetchData}>Fetch Data</button>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
