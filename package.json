@@ -1,0 +1,23 @@
+{
+  "name": "collect.lol",
+  "version": "1.0.0",
+  "description": "A geo-collectible platform",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "engines": {
+    "node": "17.2.0"
+  },
+  "scripts": {
+    "build": "cd web && yarn && yarn build && cd ..",
+    "deploy": "cp -a web/build/. public/",
+    "postinstall": "yarn run build && yarn run deploy && echo 'web built!'"
+  },
+  "keywords": [
+    "collectible"
+  ],
+  "author": "Joao Nabais",
+  "license": "ISC"
+}
