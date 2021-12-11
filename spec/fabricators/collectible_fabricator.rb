@@ -3,5 +3,5 @@ Fabricator(:collectible) do
   title       Faker::Lorem.sentence
   description Faker::Lorem.sentence(word_count: 33)
   photo       Faker::File.file_name
-  icon        Faker::File.file_nam
+  icon        Faker::File.file_name
 end
