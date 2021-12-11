@@ -1,18 +1,17 @@
 Fabricator(:user) do
-  first_name            "MyString"
-  last_name             "MyString"
-  photo                 "MyString"
-  email                 "MyString"
-  gender                "MyString"
-  login                 "MyString"
-  phone                 "MyString"
-  phone_country_code    "MyString"
-  active                false
-  deactivated_reason    "MyString"
-  email_confirmed       false
-  phone_confirmed       false
-  account_verified      false
-  account_verified_time "2021-12-11 01:57:43"
-  jwt_token             "MyString"
-  last_login_at         "2021-12-11 01:57:43"
+  first_name            Faker::Name.first_name
+  last_name             Faker::Name.last_name
+  photo                 Faker::File.file_name
+  email                 Faker::Internet.email
+  gender                Faker::Lorem.word
+  login                 Faker::Internet.user_name
+  phone                 Faker::PhoneNumber.phone_number
+  phone_country_code    Faker::PhoneNumber.area_code
+  active                Faker::Boolean.boolean
+  deactivated_reason    Faker::Lorem.sentence
+  email_confirmed       Faker::Boolean.boolean
+  phone_confirmed       Faker::Boolean.boolean
+  account_verified      Faker::Boolean.boolean
+  account_verified_time 6.days.ago
+  last_login_at         2.days.ago
 end

@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_11_021835) do
+ActiveRecord::Schema.define(version: 2021_12_11_154838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "collectibles", force: :cascade do |t|
-    t.string "type"
-    t.string "title"
+    t.string "kind", null: false
+    t.string "title", null: false
     t.string "description"
     t.string "photo"
     t.string "icon"
@@ -26,19 +26,17 @@ ActiveRecord::Schema.define(version: 2021_12_11_021835) do
   end
 
   create_table "gathers", force: :cascade do |t|
-    t.string "when"
+    t.string "time_when"
     t.string "how"
     t.string "link"
     t.string "extra_information"
     t.string "description"
     t.string "condition"
-    t.bigint "user_id"
-    t.bigint "stickerbook_id"
-    t.bigint "zone_id"
-    t.bigint "collectible_id"
+    t.bigint "user_id", null: false
+    t.bigint "stickerbook_id", null: false
+    t.bigint "zone_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["collectible_id"], name: "index_gathers_on_collectible_id"
     t.index ["stickerbook_id"], name: "index_gathers_on_stickerbook_id"
     t.index ["user_id"], name: "index_gathers_on_user_id"
     t.index ["zone_id"], name: "index_gathers_on_zone_id"
@@ -47,22 +45,21 @@ ActiveRecord::Schema.define(version: 2021_12_11_021835) do
   create_table "rules", force: :cascade do |t|
     t.string "condition_type"
     t.string "condition"
+    t.bigint "stickerbook_id"
     t.bigint "zone_id"
-    t.integer "stickerbook_id"
     t.bigint "collectible_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["collectible_id"], name: "index_rules_on_collectible_id"
+    t.index ["stickerbook_id"], name: "index_rules_on_stickerbook_id"
     t.index ["zone_id"], name: "index_rules_on_zone_id"
   end
 
   create_table "stickerbooks", force: :cascade do |t|
     t.string "title"
     t.string "created_by"
-    t.bigint "rules_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["rules_id"], name: "index_stickerbooks_on_rules_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,8 +85,8 @@ ActiveRecord::Schema.define(version: 2021_12_11_021835) do
   end
 
   create_table "zones", force: :cascade do |t|
-    t.string "type"
-    t.string "name"
+    t.string "kind", null: false
+    t.string "name", null: false
     t.string "code"
     t.string "capital"
     t.string "subregion"
@@ -98,11 +95,10 @@ ActiveRecord::Schema.define(version: 2021_12_11_021835) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "gathers", "collectibles"
   add_foreign_key "gathers", "stickerbooks"
   add_foreign_key "gathers", "users"
   add_foreign_key "gathers", "zones"
   add_foreign_key "rules", "collectibles"
+  add_foreign_key "rules", "stickerbooks"
   add_foreign_key "rules", "zones"
-  add_foreign_key "stickerbooks", "rules", column: "rules_id"
 end

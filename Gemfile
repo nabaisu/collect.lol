@@ -39,7 +39,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'fabrication'
-  gem 'ffaker'
+  gem 'faker'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'pry-rescue'

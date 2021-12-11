@@ -130,7 +130,8 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     fabrication (2.23.0)
-    ffaker (2.20.0)
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -285,7 +286,6 @@ GEM
     sys-uname (1.2.2)
       ffi (~> 1.1)
     thor (1.1.0)
-    timecop (0.9.4)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.1.0)
@@ -312,7 +312,7 @@ DEPENDENCIES
   cucumber-rails
   dotenv-rails
   fabrication
-  ffaker
+  faker
   jwt (~> 2.3)
   listen (~> 3.3)
   panko_serializer (~> 0.7.6)
@@ -335,7 +335,6 @@ DEPENDENCIES
   spring
   spring-commands-cucumber
   spring-commands-rspec
-  timecop
   tzinfo-data
   webdrivers
 

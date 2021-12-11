@@ -1,12 +1,8 @@
 Fabricator(:gather) do
-  when              "MyString"
-  how               "MyString"
-  link              "MyString"
-  extra_information "MyString"
-  description       "MyString"
-  condition         "MyString"
-  user              nil
-  stickerbook       nil
-  zone              nil
-  collectible       nil
+  time_when         Faker::Lorem.sentence
+  how               Faker::Lorem.sentence
+  link              Faker::Lorem.sentence
+  extra_information Faker::Lorem.sentence
+  description       Faker::Lorem.sentence
+  condition         Faker::Lorem.word
 end

@@ -1,5 +1,4 @@
 Fabricator(:stickerbook) do
-  title      "MyString"
-  created_by "MyString"
-  rules      nil
+  title      Faker::Lorem.sentence
+  created_by Faker::Internet.user_name
 end

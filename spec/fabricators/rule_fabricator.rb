@@ -1,7 +1,7 @@
 Fabricator(:rule) do
-  condition_type "MyString"
-  condition      "MyString"
+  condition_type Faker::Lorem.word
+  condition      Faker::Lorem.word
   zone           nil
-  stickerbook_id 1
+  stickerbook    nil
   collectible    nil
 end
